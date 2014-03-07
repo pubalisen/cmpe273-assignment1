@@ -9,14 +9,15 @@ import edu.sjsu.cmpe.library.domain.Book;
 
 public class BookRepository implements BookRepositoryInterface {
     /** In-memory map to store books. (Key, Value) -> (ISBN, Book) */
-    private final ConcurrentHashMap<Long, Book> bookInMemoryMap;
+    private final ConcurrentHashMap<Long, Book> MemoryMap;
 
     /** Never access this key directly; instead use generateISBNKey() */
     private long isbnKey;
+    
 
     public BookRepository(ConcurrentHashMap<Long, Book> bookMap) {
 	checkNotNull(bookMap, "bookMap must not be null for BookRepository");
-	bookInMemoryMap = bookMap;
+	MemoryMap = bookMap;
 	isbnKey = 0;
     }
 
@@ -43,7 +44,7 @@ public class BookRepository implements BookRepositoryInterface {
 	// TODO: create and associate other fields such as author
 
 	// Finally, save the new book into the map
-	bookInMemoryMap.putIfAbsent(isbn, newBook);
+	MemoryMap.putIfAbsent(isbn, newBook);
 
 	return newBook;
     }
@@ -55,7 +56,28 @@ public class BookRepository implements BookRepositoryInterface {
     public Book getBookByISBN(Long isbn) {
 	checkArgument(isbn > 0,
 		"ISBN was %s but expected greater than zero value", isbn);
-	return bookInMemoryMap.get(isbn);
+	return MemoryMap.get(isbn);
     }
-
+    public boolean deleteBookByISBN(Long isbn) {
+    	//checkNotNull(newBook, "newBook instance must not be null");
+    	if (MemoryMap.containsKey(isbn)) {
+    		MemoryMap.remove(isbn);
+    		return true;
+    	}
+    	else
+    		return false;
+    	
+    }
+    
+    public boolean updateBookStatusByISBN(Long isbn, String status){
+    	Book book = new Book();
+    	if (MemoryMap.containsKey(isbn)) {
+    		book = MemoryMap.get(isbn);
+    		book.setStatus(status);
+    		MemoryMap.replace(isbn, book);
+    		return true;
+    	}
+    	
+    	return false;
+    	}
 }

@@ -28,5 +28,9 @@ public interface BookRepositoryInterface {
      */
     Book getBookByISBN(Long isbn);
 
+	boolean updateBookStatusByISBN(Long long1, String status);
+
+	boolean deleteBookByISBN(Long long1);
+
     // TODO: add other operations here!
 }

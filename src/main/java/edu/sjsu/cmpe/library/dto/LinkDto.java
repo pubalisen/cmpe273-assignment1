@@ -17,7 +17,8 @@ public class LinkDto {
 	this.method = method;
     }
 
-    /**
+   
+	/**
      * @return the rel
      */
     public String getRel() {
