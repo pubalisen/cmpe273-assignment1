@@ -9,7 +9,7 @@ import java.util.List;
 public class Book {
     private long isbn;
     private String title;
-    private String date;
+    private String publicationDate;
 	private String status = "Available";
 	private  String numPages;
 	private  String language;
@@ -43,11 +43,11 @@ public class Book {
     }
     
     public String getDate() {
-    	return date;
+    	return publicationDate;
         }
     
-    public void setDate(String date) {
-    	this.date = date;
+    public void setDate(String publicationDate) {
+    	this.publicationDate = publicationDate;
         }
     
     public String getStatus() {
