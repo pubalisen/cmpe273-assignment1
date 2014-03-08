@@ -64,7 +64,7 @@ public class ReviewResourse {
 				
 			            		em.setStatusCode(400);
 			             		em.setMessage("Please enter review rating between (1-5)");
-			             		return Response.Status(400).Message(em).build();
+			             		return Response.ok(em).build();
 			    			}
 				else
 			return Response.status(400).build();
