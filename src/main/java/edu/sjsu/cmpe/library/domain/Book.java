@@ -5,89 +5,95 @@ import edu.sjsu.cmpe.library.domain.Review;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Book {
-    private long isbn;
-    private String title;
-    private String publicationDate;
-	private String status = "Available";
-	private  String numpages;
-	private  String language;
-	List<Author> author;
-	List<Review> review = new ArrayList<Review>();
-    // add more fields here
+private long isbn;
+private String title;
+private String publicationDate;
+private String Language;
+private int numPages;
+private String status = "available";
+List<Author> authors;
+List<Review> reviews = new ArrayList<Review>();
 
-   
-    public long getIsbn() {
-	return isbn;
-    }
-
-    public void setIsbn(long isbn) {
+public void setIsbn(long isbn){
 	this.isbn = isbn;
-    }
+}
 
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-	return title;
-    }
+public long getIsbn(){
+	return isbn;
+}
 
-    /**
-     * @param title
-     *            the title to set
-     */
-    public void setTitle(String title) {
+public void setTitle(String title){
 	this.title = title;
-    }
-    
-    public String getDate() {
-    	return publicationDate;
-        }
-    
-    public void setDate(String publicationDate) {
-    	this.publicationDate = publicationDate;
-        }
-    
-    public String getStatus() {
-    	return status;
-        }
-    
-    public void setStatus(String status) {
-    	this.status = status;
-        }
-    
-    public String getNumPages() {
-    	return numpages;
-        }
-    
-    public void setNumPages(String numpages) {
-    	this.numpages = numpages;
-        }
-    public List<Author> getAuthors(){
-    	return author;
-    }
-    
+}
 
-	public void setAuthors(List<Author> author) {
-		this.author = author;
-	}
+public String getTitle(){
+	return title;
+}
 
-	public List<Review> getReviews() {
-		return review;
-	}
+@JsonProperty("publication-date")
+public String getPublicationDate() {
+return publicationDate;
+}
 
-	public void setReviews(List<Review> reviews) {
-		this.review = reviews;
-	}
+public void setPublicationDate(String publicationDate) {
+this.publicationDate = publicationDate;
+}
 
-	public String getLanguage() {
-		return language;
-	}
+public String getLanguage() {
+return Language;
+}
 
-	public void setLanguage(String language) {
-		this.language = language;
-	}
+public void setLanguage(String language) {
+Language = language;
+}
 
-    
-    }
+
+@JsonProperty("num-pages")
+public int getNumPages() {
+return numPages;
+}
+
+public void setNumPages(int numPages) {
+this.numPages = numPages;
+}
+
+public String getStatus() {
+return status;
+}
+
+public void setStatus(String status) {
+this.status = status;
+}
+
+
+
+public List<Author> getAuthors() {
+return authors;
+}
+
+public void setAuthors(List<Author> authors) {
+this.authors = authors;
+}
+
+public List<Review> getReviews() {
+return reviews;
+}
+
+public void setReviews(List<Review> reviews) {
+this.reviews = reviews;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
