@@ -15,7 +15,6 @@ public class Book {
 	private  String language;
 	List<Author> author;
 	List<Review> review = new ArrayList<Review>();
-
     // add more fields here
 
    
@@ -62,8 +61,8 @@ public class Book {
     	return numpages;
         }
     
-    public void setNumPages(String numPages) {
-    	this.numpages = numPages;
+    public void setNumPages(String numpages) {
+    	this.numpages = numpages;
         }
     public List<Author> getAuthors(){
     	return author;

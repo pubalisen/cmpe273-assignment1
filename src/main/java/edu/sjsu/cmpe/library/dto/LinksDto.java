@@ -4,7 +4,6 @@ package edu.sjsu.cmpe.library.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class LinksDto {
     private List<LinkDto> links = new ArrayList<LinkDto>();
 

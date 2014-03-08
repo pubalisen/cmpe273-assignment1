@@ -8,7 +8,6 @@ import edu.sjsu.cmpe.library.domain.Review;
 
 public class ReviewDto extends LinksDto {
 	private Review review;
-
 	/**
 	 *
 	 */

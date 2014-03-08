@@ -10,7 +10,6 @@ import edu.sjsu.cmpe.library.domain.Review;
 public class ReviewsDto extends LinksDto {
 	private List<Review> reviews;
 
-
 	/**
 	 *
 	 */

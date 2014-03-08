@@ -1,6 +1,4 @@
 package edu.sjsu.cmpe.library.dto;
-
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

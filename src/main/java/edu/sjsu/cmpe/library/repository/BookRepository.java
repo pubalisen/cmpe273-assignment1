@@ -7,7 +7,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.concurrent.ConcurrentHashMap;
 
 import edu.sjsu.cmpe.library.domain.Book;
-
 public class BookRepository implements BookRepositoryInterface {
     /** In-memory map to store books. (Key, Value) -> (ISBN, Book) */
     private final ConcurrentHashMap<Long, Book> MemoryMap;

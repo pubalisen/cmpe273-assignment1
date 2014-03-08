@@ -4,7 +4,6 @@ import edu.sjsu.cmpe.library.domain.Book;
 import edu.sjsu.cmpe.library.domain.Author;
 
 public interface AuthorRepositoryInterface {
-
 	/**
 	 * @param request
 	 * @return

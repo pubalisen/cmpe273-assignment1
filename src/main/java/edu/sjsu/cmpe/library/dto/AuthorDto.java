@@ -1,7 +1,5 @@
 package edu.sjsu.cmpe.library.dto;
 
-
-
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import edu.sjsu.cmpe.library.domain.Author;

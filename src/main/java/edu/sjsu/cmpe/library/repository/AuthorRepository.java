@@ -8,7 +8,6 @@ import edu.sjsu.cmpe.library.domain.Book;
 
 import edu.sjsu.cmpe.library.domain.Author;
 
-
 @SuppressWarnings("unused")
 public class AuthorRepository implements AuthorRepositoryInterface {
 
