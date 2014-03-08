@@ -11,7 +11,7 @@ public class Book {
     private String title;
     private String publicationDate;
 	private String status = "Available";
-	private  String numPages;
+	private  String numpages;
 	private  String language;
 	List<Author> author;
 	List<Review> review = new ArrayList<Review>();
@@ -59,11 +59,11 @@ public class Book {
         }
     
     public String getNumPages() {
-    	return numPages;
+    	return numpages;
         }
     
     public void setNumPages(String numPages) {
-    	this.numPages = numPages;
+    	this.numpages = numPages;
         }
     public List<Author> getAuthors(){
     	return author;
