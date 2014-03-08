@@ -1,9 +1,15 @@
 package edu.sjsu.cmpe.library.domain;
 
+import javax.validation.constraints.*;
+import javax.validation.ValidationException;
+import org.hibernate.validator.constraints.*;
 public class Review {
 	private int id;
+	@NotNull
 	private int rating;
+	@Size(min = 1, max =5)
 	private String comment;
+	@NotEmpty(message = "Review comment cannot be empty")
 	
 	public long getId(){
 		return id;

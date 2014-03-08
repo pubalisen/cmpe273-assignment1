@@ -29,6 +29,7 @@ import com.yammer.metrics.annotation.Timed;
 
 import edu.sjsu.cmpe.library.domain.Book;
 import edu.sjsu.cmpe.library.dto.BookDto;
+import edu.sjsu.cmpe.library.dto.ErrorMessage;
 import edu.sjsu.cmpe.library.dto.LinkDto;
 import edu.sjsu.cmpe.library.dto.LinksDto;
 import edu.sjsu.cmpe.library.repository.AuthorRepositoryInterface;
@@ -113,8 +114,7 @@ public class BookResource {
     public Response updateBookStatusByISBN(@Valid @PathParam("isbn") LongParam isbn, @QueryParam("status") String status){
     	//Book book = new Book();
     	if(bookRepository.updateBookStatusByISBN(isbn.get(), status)) {
-    		//Book book = bookRepository.getBookByISBN(isbn.get());
-    		LinksDto links = new LinksDto();
+     		LinksDto links = new LinksDto();
     		links.addLink(new LinkDto("view-book", "/books/"+isbn, "GET"));
     		links.addLink(new LinkDto("update-book", "/books/"+isbn, "PUT"));
     		links.addLink(new LinkDto("delete-book", "/books/"+isbn, "DELETE"));
@@ -126,8 +126,8 @@ public class BookResource {
     		return Response.status(404).build();    	
     	
     } 
-    /*
-    @SuppressWarnings("null")
+    
+ /*   @SuppressWarnings("null")
 	@GET
     @Path("/{isbn}")
     @Timed(name = "view-book")
@@ -136,8 +136,7 @@ public class BookResource {
     	BookDto links = new BookDto(book);
     	    	EntityTag tag = new EntityTag(Integer.toString(book.hashCode()));
     	  ResponseBuilder Response = request.evaluatePreconditions(tag);
-    	  
-    	  CacheControl cc =new CacheControl();
+      	  CacheControl cc =new CacheControl();
     	  cc.setMaxAge(1200);
     	  if(Response != null) {
     		  Response.cacheControl(cc);
@@ -160,6 +159,7 @@ public class BookResource {
     		  
     	  }
     	  
-    }*/
+    }
+    */
 
     }

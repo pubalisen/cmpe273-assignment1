@@ -11,24 +11,18 @@ public class Book {
     private String title;
     private String date;
 	private String status = "Available";
-	private  String NoPages;
+	private  String numPages;
 	private  String language;
 	List<Author> author;
 	List<Review> review = new ArrayList<Review>();
 
     // add more fields here
 
-    /**
-     * @return the isbn
-     */
+   
     public long getIsbn() {
 	return isbn;
     }
 
-    /**
-     * @param isbn
-     *            the isbn to set
-     */
     public void setIsbn(long isbn) {
 	this.isbn = isbn;
     }
@@ -64,12 +58,12 @@ public class Book {
     	this.status = status;
         }
     
-    public String getNoPages() {
-    	return NoPages;
+    public String getNumPages() {
+    	return numPages;
         }
     
-    public void setNoPages(String NoPages) {
-    	this.NoPages = NoPages;
+    public void setNumPages(String numPages) {
+    	this.numPages = numPages;
         }
     public List<Author> getAuthors(){
     	return author;

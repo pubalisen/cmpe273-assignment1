@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
 
+import edu.sjsu.cmpe.library.dto.ErrorMessage;
 import edu.sjsu.cmpe.library.domain.Book;
 import edu.sjsu.cmpe.library.domain.Review;
 import edu.sjsu.cmpe.library.dto.LinkDto;
@@ -33,7 +34,7 @@ public class ReviewResourse {
     private final BookRepositoryInterface bookRepository;
     private final ReviewRepositoryInterface reviewRepository;
 
-
+    ErrorMessage em = new ErrorMessage();
 	/**
 	 *
 	 */
@@ -48,6 +49,8 @@ public class ReviewResourse {
 	@Timed(name = "create-review")
 	public Response createReview(@Valid @PathParam("isbn") LongParam isbn, Review review) {
 		Book tempBook = bookRepository.getBookByISBN(isbn.get());
+		if(bookRepository.getBookByISBN(isbn.get()) != null){
+			if((review.getRating() !=0) && (review.getRating() >=1) && (review.getRating() <=5) ) {
 		List<Review> tempReviews = tempBook.getReviews();
 		//for (int i = 0 ; i<tempReviews.size(); i++) {}
 		tempReviews.add(review);
@@ -56,6 +59,15 @@ public class ReviewResourse {
 		LinksDto links = new LinksDto();
 		links.addLink(new LinkDto("view-review","/books/"+isbn+"/reviews/"+id , "GET"));
 		return Response.status(201).entity(links).build();
+	}
+			else
+				
+			            		em.setStatusCode(400);
+			             		em.setMessage("Please enter review rating between (1-5)");
+			             		return Response.Status(400).Message(em).build();
+			    			}
+				else
+			return Response.status(400).build();
 	}
 
 	@GET
@@ -74,7 +86,8 @@ public class ReviewResourse {
 		//List<Review> reviews = bookRepository.getBookByISBN(isbn.get()).getReviews();
 		Review review = reviewRepository.getReviewByISBNandId(isbn.get(), id);
 		ReviewDto reviewResponse = new ReviewDto(review);
-		reviewResponse.addLink(new LinkDto("view-review", "/books/"+isbn+"reviews"+id, "GET"));
+		reviewResponse.addLink(new LinkDto("view-review", "/books/"+isbn+"/reviews/"
+		+id, "GET"));
 		return Response.ok().entity(reviewResponse).build();
 	}
 
