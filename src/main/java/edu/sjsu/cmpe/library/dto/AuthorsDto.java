@@ -9,6 +9,7 @@ import edu.sjsu.cmpe.library.domain.Author;
 
 @JsonPropertyOrder(alphabetic = true)
 
+
 public class AuthorsDto extends LinksDto {
 	private List<Author> authors;
 	/**

@@ -53,6 +53,8 @@ public class AuthorResource {
 	@GET
 	@Path("/{id}")
 	@Timed (name = "view-authors")
+
+
 	public Response getOneAuthor(@PathParam("isbn") LongParam isbn, @PathParam("id") int id) {
 		Author author = authorRepository.getAuthorByISBNandID(isbn.get(),id);
 		AuthorDto authorResponse = new AuthorDto(author);

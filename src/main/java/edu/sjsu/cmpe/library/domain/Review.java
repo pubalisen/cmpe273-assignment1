@@ -1,6 +1,7 @@
 package edu.sjsu.cmpe.library.domain;
 
 import javax.validation.constraints.*;
+
 import javax.validation.ValidationException;
 import org.hibernate.validator.constraints.*;
 public class Review {
